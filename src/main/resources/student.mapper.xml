@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.Mapper.StudentMapper">
+    <resultMap id="BaseMap" type="com.qianfeng.Bean.TbStudent">
+        <id property="stuId" column="stu_id" javaType="java.lang.Long" ></id>
+        <result property="stuName" column="stu_name" javaType="java.lang.String"></result>
+        <result property="stuAge" column="stu_age" javaType="java.lang.Long"></result>
+    </resultMap>
+    <select id="selectAllStu" resultMap="BaseMap">
+        select * from tb_student
+    </select>
+    <insert id="insertStu" >
+        insert into tb_student(stu_name, stu_age)values(#{student.stuName},#{student.stuAge});
+    </insert>
+    <delete id="deleteStu">
+        delete from tb_student where stu_id=#{stuId}
+    </delete>
+</mapper>
